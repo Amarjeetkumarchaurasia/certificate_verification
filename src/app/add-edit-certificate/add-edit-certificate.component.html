@@ -1,0 +1,16 @@
+<form [formGroup]="certificate_form">
+    <div class="certificate">
+        <h1>Certificate Verification</h1>
+    </div>
+    <div class="certificate_serch">
+        <div class="box">
+            <input type="search" placeholder="Center Code" class="search_box1" formControlName="std_center_code">
+        </div>
+        <div class="box">
+            <input type="search" placeholder="Certificate No" class="search_box2" formControlName="std_certificate_no">
+        </div>
+    </div>
+</form>
+<div class="submit">
+    <button mat-raised-button color="primary" (click)="download_cer()">search</button>
+</div>
