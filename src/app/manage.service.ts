@@ -10,7 +10,7 @@ export class ManageService {
   ) { }
   baseUrl: string = 'http://localhost/cmsapinew/';
  
-  get_certificate() {
-    return this.http.get<[]>(this.baseUrl + 'certificate_view.php')
+  get_certificate_by_certificate_no(data:any){
+    return this.http.post<any>(this.baseUrl + 'get_certificate_by_certificate_no_verify.php',data)
   }
 }

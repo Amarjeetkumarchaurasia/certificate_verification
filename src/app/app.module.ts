@@ -12,12 +12,17 @@ import { FormsModule }   from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddEditCertificateComponent } from './add-edit-certificate/add-edit-certificate.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CertificateTableComponent } from './certificate-table/certificate-table.component';
+import {MatInputModule} from '@angular/material/input';
+import { ViewPortComponent } from './view-port/view-port.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddEditCertificateComponent
+    AddEditCertificateComponent,
+    CertificateTableComponent,
+    ViewPortComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

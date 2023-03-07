@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators ,} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ManageService } from '../manage.service';
 
 @Component({
@@ -10,28 +11,37 @@ import { ManageService } from '../manage.service';
 export class AddEditCertificateComponent {
   certificate_form!: FormGroup;
   disableSelect = new FormControl(false);
+  std_center_code:any
+  std_certificate_no:any
 
   constructor(
     private fb: FormBuilder,
-    private service:ManageService,
-  ) {}
+    private service: ManageService,
+    private router: Router,
+  ) { }
   ngOnInit(): void {
     this.certificate_form = this.fb.group({
-      notification_id: ['',],
       std_center_code: ['', Validators.required],
       std_certificate_no: ['', Validators.required],
-      admin_id_fk: ['', Validators.required]
     })
-    this.service.get_certificate().subscribe(
-      (result: any) => {
-        console.log(result)
+  }
 
+  onverfiy() {
+    this.service.get_certificate_by_certificate_no(this.certificate_form.value).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.router.navigate(['veryfication'], res.uid[0])
+          alert('Verify Successfully...')
+        }
+        else {
+          alert('center code & certificate not match..')
+        }
+      },
+      (error: any) => {
+        alert('certificate no not match')
       }
     )
   }
-  
-  download_cer(){
-    window.print()
-  }
 
 }
+

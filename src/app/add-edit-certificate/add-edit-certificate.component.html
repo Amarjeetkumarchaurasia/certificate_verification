@@ -1,16 +1,13 @@
+<br><br>
 <form [formGroup]="certificate_form">
-    <div class="certificate">
-        <h1>Certificate Verification</h1>
-    </div>
-    <div class="certificate_serch">
-        <div class="box">
-            <input type="search" placeholder="Center Code" class="search_box1" formControlName="std_center_code">
-        </div>
-        <div class="box">
-            <input type="search" placeholder="Certificate No" class="search_box2" formControlName="std_certificate_no">
-        </div>
-    </div>
+    <h1>Certificate Verification</h1><br>
+    <mat-form-field class="example-full-width">
+        <mat-label>Center Code</mat-label>
+        <input matInput placeholder="Center Code" formControlName="std_center_code">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Certificate No</mat-label>
+        <input matInput placeholder="Certificate No" formControlName="std_certificate_no">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="onverfiy()" [disabled]="!this.certificate_form.valid">Verify</button>
 </form>
-<div class="submit">
-    <button mat-raised-button color="primary" (click)="download_cer()">search</button>
-</div>
