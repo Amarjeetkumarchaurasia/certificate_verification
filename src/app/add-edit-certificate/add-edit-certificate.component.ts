@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { ManageService } from '../manage.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class AddEditCertificateComponent {
     private fb: FormBuilder,
     private service: ManageService,
     private router: Router,
+    private popup:NgToastService
   ) { }
   ngOnInit(): void {
     this.certificate_form = this.fb.group({
@@ -29,16 +31,17 @@ export class AddEditCertificateComponent {
   onverfiy() {
     this.service.get_certificate_by_certificate_no(this.certificate_form.value).subscribe(
       (res: any) => {
+        console.log(res)
         if (res.success) {
           this.router.navigate(['veryfication'], res.uid[0])
-          alert('Verify Successfully...')
+            this.popup.success({ detail: 'Success', summary: 'Verify Successfull...', })
         }
         else {
-          alert('center code & certificate not match..')
+          this.popup.error({ detail: 'Fail', summary: 'No Record Found', })
         }
       },
       (error: any) => {
-        alert('certificate no not match')
+        this.popup.error({ detail: 'Fail', summary: 'No Record Foun', })
       }
     )
   }

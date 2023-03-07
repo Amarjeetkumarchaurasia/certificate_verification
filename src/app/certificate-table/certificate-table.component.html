@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <td align="right">Center name : </td>
-            <td>{{certificate_data.center_name}}</td>
+            <td>{{certificate_data.std_center_name}}</td>
         </tr>
         <tr>
             <td align="right">Certificate No : </td>
@@ -32,7 +32,7 @@
             <td>{{certificate_data.std_rigistration_date}}</td>
         </tr>
         <tr>
-            <td align="right"><button mat-raised-button color="primary" (click)="download()">Download</button></td>
+            <td align="right"><a href="{{img_url}}{{certificate_data.std_gen_certificate}}"><button mat-raised-button color="primary" >Download</button></a> </td>
             <td><button mat-raised-button color="primary" routerLink="">View Other Result</button></td>
         </tr>
     </table>

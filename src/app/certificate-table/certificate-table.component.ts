@@ -18,7 +18,6 @@ constructor(
  
 }
 download(){
-  window.print()
 }
 
 }

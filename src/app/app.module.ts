@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CertificateTableComponent } from './certificate-table/certificate-table.component';
 import {MatInputModule} from '@angular/material/input';
 import { ViewPortComponent } from './view-port/view-port.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ViewPortComponent } from './view-port/view-port.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatInputModule
+    MatInputModule,
+    NgToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

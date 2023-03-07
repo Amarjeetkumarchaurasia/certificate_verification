@@ -8,7 +8,7 @@ export class ManageService {
   constructor(
     private http: HttpClient
   ) { }
-  baseUrl: string = 'http://localhost/cmsapinew/';
+  baseUrl: string = 'https://greensoft.net.in/gscms/api/'
  
   get_certificate_by_certificate_no(data:any){
     return this.http.post<any>(this.baseUrl + 'get_certificate_by_certificate_no_verify.php',data)
