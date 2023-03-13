@@ -7,11 +7,10 @@ import { Route, Router } from '@angular/router';
   styleUrls: ['./certificate-table.component.css']
 })
 export class CertificateTableComponent {
-img_url :string = 'https://greensoft.net.in/gscms/assets/certificate/'
+img_url :string = 'https://educatorbox.com/assets/certificate/'
 certificate_data:any
 constructor(
   private router: Router
-
 ){
  const logindata = this.router.getCurrentNavigation()
   this.certificate_data = logindata?.extras
